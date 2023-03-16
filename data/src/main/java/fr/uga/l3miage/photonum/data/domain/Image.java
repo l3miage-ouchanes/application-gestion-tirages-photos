@@ -11,6 +11,24 @@ public class Image {
     private String chemin;
     private Integer resolution;
     private boolean estPartagee;
+    private InformationPriseDeVue informationPriseDeVue;
+    private Set<Photo> photos;
+
+    public Set<Photo> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(Set<Photo> photos) {
+        this.photos = photos;
+    }
+
+    public InformationPriseDeVue getInformationPriseDeVue() {
+        return informationPriseDeVue;
+    }
+
+    public void setInformationPriseDeVue(InformationPriseDeVue informationPriseDeVue) {
+        this.informationPriseDeVue = informationPriseDeVue;
+    }
 
     public Integer getId() {
         return Id;

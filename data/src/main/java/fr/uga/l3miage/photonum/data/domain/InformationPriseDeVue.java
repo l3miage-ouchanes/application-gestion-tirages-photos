@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Information {
+public class InformationPriseDeVue {
     private Integer Id;
     private Date dateCreation;
     private Integer taille;
