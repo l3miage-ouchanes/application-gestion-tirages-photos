@@ -177,7 +177,7 @@
 											"top": 428,
 											"width": 174,
 											"height": 13,
-											"text": "nom: String",
+											"text": "nom: List<<String>>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -422,7 +422,7 @@
 											"top": 413,
 											"width": 175,
 											"height": 13,
-											"text": "resolution: Integer",
+											"text": "resolution: Real",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2239,7 +2239,7 @@
 											"top": 1558,
 											"width": 174,
 											"height": 13,
-											"text": "prix: Integer",
+											"text": "/prix: Integer",
 											"horizontalAlignment": 0
 										},
 										{
@@ -3469,7 +3469,7 @@
 											"top": 55,
 											"width": 174,
 											"height": 13,
-											"text": "Information"
+											"text": "InformationPriseDeVue"
 										},
 										{
 											"_type": "LabelView",
@@ -3563,7 +3563,7 @@
 											"top": 93,
 											"width": 174,
 											"height": 13,
-											"text": "taille: Integer",
+											"text": "taille: Real",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6468,7 +6468,7 @@
 											"top": 727,
 											"width": 174,
 											"height": 13,
-											"text": "Element"
+											"text": "ContenuTirage"
 										},
 										{
 											"_type": "LabelView",
@@ -7037,17 +7037,17 @@
 										"$ref": "AAAAAAGG6tCe6zk79Qo="
 									},
 									"font": "Arial;13;0",
-									"left": 2284,
+									"left": 2295,
 									"top": 958,
-									"width": 60.3408203125,
+									"width": 89.12744140625,
 									"height": 13,
-									"alpha": 0.9964915406764184,
-									"distance": 40.496913462633174,
+									"alpha": 1.2341214708799213,
+									"distance": 63.56886030125127,
 									"hostEdge": {
 										"$ref": "AAAAAAGG6tCe6zk+9vc="
 									},
 									"edgePosition": 2,
-									"text": "elements"
+									"text": "contenusTirage"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -9382,17 +9382,17 @@
 										"$ref": "AAAAAAGG66lSsNzjcvU="
 									},
 									"font": "Arial;13;0",
-									"left": 887,
-									"top": 279,
-									"width": 64.30810546875,
+									"left": 895,
+									"top": 280,
+									"width": 133.19287109375,
 									"height": 13,
-									"alpha": 1.1760052026216576,
-									"distance": 39,
+									"alpha": 1.383156475096012,
+									"distance": 80.4114419718985,
 									"hostEdge": {
 										"$ref": "AAAAAAGG66lSsdzmstQ="
 									},
 									"edgePosition": 2,
-									"text": "information"
+									"text": "informationPriseDeVue"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -9739,7 +9739,7 @@
 							},
 							"name": "nom",
 							"visibility": "private",
-							"type": "String"
+							"type": "List<<String>>"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -9813,7 +9813,7 @@
 							},
 							"name": "resolution",
 							"visibility": "private",
-							"type": "Integer"
+							"type": "Real"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10637,7 +10637,8 @@
 							},
 							"name": "prix",
 							"visibility": "private",
-							"type": "Integer"
+							"type": "Integer",
+							"isDerived": true
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11074,7 +11075,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Information",
+					"name": "InformationPriseDeVue",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -11117,7 +11118,7 @@
 								"_parent": {
 									"$ref": "AAAAAAGG66lSsNziW9Y="
 								},
-								"name": "information",
+								"name": "informationPriseDeVue",
 								"reference": {
 									"$ref": "AAAAAAGG2824pcpUHiU="
 								},
@@ -11157,7 +11158,7 @@
 							},
 							"name": "taille",
 							"visibility": "private",
-							"type": "Integer"
+							"type": "Real"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -19209,7 +19210,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Element",
+					"name": "ContenuTirage",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -19223,7 +19224,7 @@
 								"_parent": {
 									"$ref": "AAAAAAGG6tCe6zk6FAs="
 								},
-								"name": "elements",
+								"name": "contenusTirage",
 								"reference": {
 									"$ref": "AAAAAAGG6s5dz95fCcc="
 								},
