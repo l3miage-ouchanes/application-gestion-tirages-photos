@@ -3,13 +3,25 @@ package fr.uga.l3miage.photonum.data.domain;
 import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Client")
 public class Client {
-    private Long id;
+    @Id
+    @Column(name = "email")
+    private String email; // c'est le mail qui identifie un client (mail unique)
+
+    ////////////// jsp quoi mettre !!!!!!!!!!!!!!!!!!!!!!!!!!!!
     private List<String> prenom;
     private List<String> nom;
-    private String email;
+
+    @Column(name = "mdp")
     private String mdp;
+
+    @ManyToMany
     private Set<Adresse> adresses;
+
 
     public Set<Adresse> getAdresses() {
         return adresses;
@@ -49,14 +61,5 @@ public class Client {
 
     public void setMdp(String mdp) {
         this.mdp = mdp;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
+    }  
 }
