@@ -5,7 +5,7 @@ import java.util.Set;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "adresse")
+@Table(name = "Adresse")
 public class Adresse {
     @Id
     @GeneratedValue

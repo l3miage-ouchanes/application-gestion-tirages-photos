@@ -2,8 +2,6 @@ package fr.uga.l3miage.photonum.data.domain;
 
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 public class Image {
@@ -22,6 +20,13 @@ public class Image {
 
     @OneToMany
     private Set<Photo> photos;
+
+    @ManyToMany
+    private Set<Client> clients;
+
+    @ManyToOne
+    private Client possesseur;
+    
 
     public Set<Photo> getPhotos() {
         return photos;
@@ -61,5 +66,21 @@ public class Image {
 
     public void setEstPartagee(boolean estPartagee) {
         this.estPartagee = estPartagee;
+    }
+
+    public Set<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(Set<Client> clients) {
+        this.clients = clients;
+    }
+
+    public Client getPossesseur() {
+        return possesseur;
+    }
+
+    public void setPossesseur(Client possesseur) {
+        this.possesseur = possesseur;
     }
 }

@@ -30,6 +30,9 @@ public class Client {
     @OneToMany
     private Set<Image> imagesPossedees;
 
+    @OneToMany
+    private Set<Impression> impressions;
+
     public Set<Adresse> getAdresses() {
         return adresses;
     }
@@ -84,5 +87,13 @@ public class Client {
 
     public void setImagesPossedees(Set<Image> imagesPossedees) {
         this.imagesPossedees = imagesPossedees;
+    }
+
+    public Set<Impression> getImpressions() {
+        return impressions;
+    }
+
+    public void setImpressions(Set<Impression> impressions) {
+        this.impressions = impressions;
     }
 }

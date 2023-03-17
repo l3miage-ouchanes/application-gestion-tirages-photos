@@ -3,9 +3,6 @@ package fr.uga.l3miage.photonum.data.domain;
 import jakarta.persistence.*;
 
 import java.sql.Date;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "InformationPriseDeVue")
@@ -24,7 +21,7 @@ public class InformationPriseDeVue {
     @Column(name = "format")
     private String format;
 
-    
+
     public Integer getId() {
         return id;
     }
