@@ -12,9 +12,11 @@ public class Client {
     @Column(name = "email")
     private String email; // c'est le mail qui identifie un client (mail unique)
 
-    ////////////// jsp quoi mettre !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    private List<String> prenom;
-    private List<String> nom;
+    @Column(name = "prenoms")
+    private List<String> prenoms;
+
+    @Column(name = "noms")
+    private List<String> noms;
 
     @Column(name = "mdp")
     private String mdp;
@@ -22,6 +24,11 @@ public class Client {
     @ManyToMany
     private Set<Adresse> adresses;
 
+    @ManyToMany
+    private Set<Image> imagesAccessibles;
+
+    @OneToMany
+    private Set<Image> imagesPossedees;
 
     public Set<Adresse> getAdresses() {
         return adresses;
@@ -31,20 +38,20 @@ public class Client {
         this.adresses = adresses;
     }
 
-    public List<String> getPrenom() {
-        return prenom;
+    public List<String> getPrenoms() {
+        return prenoms;
     }
 
-    public void setPrenom(List<String> prenom) {
-        this.prenom = prenom;
+    public void setPrenoms(List<String> prenoms) {
+        this.prenoms = prenoms;
     }
 
-    public List<String> getNom() {
-        return nom;
+    public List<String> getNoms() {
+        return noms;
     }
 
-    public void setNom(List<String> nom) {
-        this.nom = nom;
+    public void setNoms(List<String> noms) {
+        this.noms = noms;
     }
 
     public String getEmail() {
@@ -61,5 +68,21 @@ public class Client {
 
     public void setMdp(String mdp) {
         this.mdp = mdp;
-    }  
+    }
+
+    public Set<Image> getImagesAccessibles() {
+        return imagesAccessibles;
+    }
+
+    public void setImagesAccessibles(Set<Image> imagesAccessibles) {
+        this.imagesAccessibles = imagesAccessibles;
+    }
+
+    public Set<Image> getImagesPossedees() {
+        return imagesPossedees;
+    }
+
+    public void setImagesPossedees(Set<Image> imagesPossedees) {
+        this.imagesPossedees = imagesPossedees;
+    }
 }
