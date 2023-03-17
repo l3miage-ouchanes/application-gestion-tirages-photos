@@ -7,10 +7,21 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Entity
+@Table(name = "InformationPriseDeVue")
 public class InformationPriseDeVue {
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private Integer id;
+
+    @Column(name = "dateCreation")
     private Date dateCreation;
+
+    @Column(name = "taille")
     private Integer taille;
+
+    @Column(name = "format")
     private String format;
 
     public Integer getId() {
