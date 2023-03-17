@@ -7,11 +7,20 @@ import java.util.Objects;
 import java.util.Set;
 
 public class Image {
-    private Integer id;
+    @Id
+    @Column(name = "chemin")
     private String chemin;
+
+    @Column(name = "resolution")
     private Integer resolution;
+
+    @Column(name = "estPartagee")
     private boolean estPartagee;
+
+    @OneToOne
     private InformationPriseDeVue informationPriseDeVue;
+
+    @OneToMany
     private Set<Photo> photos;
 
     public Set<Photo> getPhotos() {
@@ -28,14 +37,6 @@ public class Image {
 
     public void setInformationPriseDeVue(InformationPriseDeVue informationPriseDeVue) {
         this.informationPriseDeVue = informationPriseDeVue;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getChemin() {
