@@ -5,20 +5,13 @@ import jakarta.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "InformationPriseDeVue")
 public class InformationPriseDeVue {
     @Id
     @GeneratedValue
-    @Column(name = "id")
-    private Integer id;
+    private int id;
 
-    @Column(name = "dateCreation")
     private Date dateCreation;
-
-    @Column(name = "taille")
-    private Integer taille;
-
-    @Column(name = "format")
+    private int taille;
     private String format;
 
 

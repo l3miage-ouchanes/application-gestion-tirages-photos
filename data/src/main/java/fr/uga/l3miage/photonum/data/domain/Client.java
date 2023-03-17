@@ -6,38 +6,32 @@ import java.util.Set;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Client")
 public class Client {
     @Id
-    @Column(name = "email")
     private String email; // c'est le mail qui identifie un client (mail unique)
 
-    @Column(name = "prenoms")
     private List<String> prenoms;
-
-    @Column(name = "noms")
     private List<String> noms;
-
-    @Column(name = "mdp")
     private String mdp;
 
     @ManyToMany
-    private Set<Adresse> adresses;
+    private List<Adresse> adresses;
 
     @ManyToMany
-    private Set<Image> imagesAccessibles;
+    private List<Image> imagesAccessibles;
 
     @OneToMany
-    private Set<Image> imagesPossedees;
+    private List<Image> imagesPossedees;
 
     @OneToMany
     private Set<Impression> impressions;
 
-    public Set<Adresse> getAdresses() {
+
+    public List<Adresse> getAdresses() {
         return adresses;
     }
 
-    public void setAdresses(Set<Adresse> adresses) {
+    public void setAdresses(List<Adresse> adresses) {
         this.adresses = adresses;
     }
 
@@ -73,19 +67,19 @@ public class Client {
         this.mdp = mdp;
     }
 
-    public Set<Image> getImagesAccessibles() {
+    public List<Image> getImagesAccessibles() {
         return imagesAccessibles;
     }
 
-    public void setImagesAccessibles(Set<Image> imagesAccessibles) {
+    public void setImagesAccessibles(List<Image> imagesAccessibles) {
         this.imagesAccessibles = imagesAccessibles;
     }
 
-    public Set<Image> getImagesPossedees() {
+    public List<Image> getImagesPossedees() {
         return imagesPossedees;
     }
 
-    public void setImagesPossedees(Set<Image> imagesPossedees) {
+    public void setImagesPossedees(List<Image> imagesPossedees) {
         this.imagesPossedees = imagesPossedees;
     }
 

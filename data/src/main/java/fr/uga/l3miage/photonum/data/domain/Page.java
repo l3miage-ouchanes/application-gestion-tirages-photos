@@ -5,18 +5,14 @@ import java.util.*;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Page")
 public class Page {
     @Id
     @GeneratedValue
-    @Column(name = "id")
-    private Integer id;
+    private int id;
 
-    @Column(name = "miseEnForme")
     private String miseEnForme;
 
-    @OneToMany
-    private List<Photo> photos;
+    private Set<Photo> photos;
 
     
     public Integer getId() {
@@ -35,12 +31,13 @@ public class Page {
         this.miseEnForme = miseEnForme;
     }
 
-    public List<Photo> getPhotos() {
+    public Set<Photo> getPhotos() {
         return photos;
     }
 
-    public void setPhotos(List<Photo> photos) {
+    public void setPhotos(Set<Photo> photos) {
         this.photos = photos;
     }
 
+    
 }

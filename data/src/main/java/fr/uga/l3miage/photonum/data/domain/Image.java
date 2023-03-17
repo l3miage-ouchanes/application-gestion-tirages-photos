@@ -3,26 +3,22 @@ package fr.uga.l3miage.photonum.data.domain;
 import jakarta.persistence.*;
 
 import java.util.Set;
+import java.util.List;
 
+@Entity
 public class Image {
     @Id
-    @Column(name = "chemin")
     private String chemin;
 
-    @Column(name = "resolution")
-    private Integer resolution;
-
-    @Column(name = "estPartagee")
+    private int resolution;
     private boolean estPartagee;
-
-    @OneToOne
     private InformationPriseDeVue informationPriseDeVue;
 
     @OneToMany
     private Set<Photo> photos;
 
     @ManyToMany
-    private Set<Client> clients;
+    private List<Client> clients;
 
     @ManyToOne
     private Client possesseur;
@@ -68,11 +64,11 @@ public class Image {
         this.estPartagee = estPartagee;
     }
 
-    public Set<Client> getClients() {
+    public List<Client> getClients() {
         return clients;
     }
 
-    public void setClients(Set<Client> clients) {
+    public void setClients(List<Client> clients) {
         this.clients = clients;
     }
 

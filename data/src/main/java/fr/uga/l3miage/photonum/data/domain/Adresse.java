@@ -1,6 +1,6 @@
 package fr.uga.l3miage.photonum.data.domain;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -25,14 +25,14 @@ public class Adresse {
     private String ville;
 
     @ManyToMany
-    private Set<Client> clients; 
+    private List<Client> clients; 
 
 
-    public Set<Client> getClients() {
+    public List<Client> getClients() {
         return clients;
     }
 
-    public void setClients(Set<Client> clients) {
+    public void setClients(List<Client> clients) {
         this.clients = clients;
     }
 

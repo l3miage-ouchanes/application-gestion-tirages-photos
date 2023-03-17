@@ -2,33 +2,41 @@ package fr.uga.l3miage.photonum.data.domain;
 
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-
 
 @Entity
 public abstract class Impression {
-
     @Id
     @GeneratedValue
-    private Long id; // remplacer car String si besoin
+    private int id; // remplacer car String si besoin
     private String proprietaire;
-    private Article article;
+
+    @ManyToOne
+    private Client client;
+
     
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+
+    public void setId(int id) {
         this.id = id;
     }
+
     public String getProprietaire() {
         return proprietaire;
     }
+    
     public void setProprietaire(String proprietaire) {
         this.proprietaire = proprietaire;
     }
 
-    
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
 
 }
