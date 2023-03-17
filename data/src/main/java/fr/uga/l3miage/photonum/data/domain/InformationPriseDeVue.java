@@ -24,9 +24,7 @@ public class InformationPriseDeVue {
     @Column(name = "format")
     private String format;
 
-    @OneToOne
-    private Image image;
-
+    
     public Integer getId() {
         return id;
     }
