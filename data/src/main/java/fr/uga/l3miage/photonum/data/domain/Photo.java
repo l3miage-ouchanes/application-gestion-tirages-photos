@@ -6,18 +6,29 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Entity
+@Table(name = "Photo")
 public class Photo {
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     private Integer id;
-    private String _texteDescription;
-    private String parametres;
-    private Set<Image> images;
 
-    public Set<Image> getImages() {
-        return images;
+    @Column(name = "texteDescription")
+    private String _texteDescription;
+
+    @Column(name ="parametres")
+    private String parametres;
+
+    @ManyToOne
+    private Set<Image> image;
+
+    public Set<Image> getImage() {
+        return image;
     }
 
-    public void setImages(Set<Image> images) {
-        this.images = images;
+    public void setImage(Set<Image> image) {
+        this.image = image;
     }
 
     public Integer getId() {
