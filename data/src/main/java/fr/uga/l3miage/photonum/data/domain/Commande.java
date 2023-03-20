@@ -1,7 +1,7 @@
 package fr.uga.l3miage.photonum.data.domain;
 
 import java.sql.Date;
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -13,7 +13,9 @@ public class Commande {
 
     private Date date;
     private double prixTotal;
-    private Set<Article> articles;
+
+    @OneToMany
+    private List<Article> articles;
 
 
     public int getId() {
@@ -40,11 +42,11 @@ public class Commande {
         this.prixTotal = prixTotal;
     }
 
-    public Set<Article> getArticles() {
+    public List<Article> getArticles() {
         return articles;
     }
     
-    public void setArticles(Set<Article> articles) {
+    public void setArticles(List<Article> articles) {
         this.articles = articles;
     }
 

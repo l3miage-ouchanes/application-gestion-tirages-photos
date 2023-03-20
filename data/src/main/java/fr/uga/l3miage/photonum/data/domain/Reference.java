@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 public class Reference {
     private CodeReference codeReference;
     private TypeImpression typeImpression;
-    private Integer prix;
+    private int prix;
 
 
     public CodeReference getCodeReference() {
@@ -25,11 +25,11 @@ public class Reference {
         this.typeImpression = typeImpression;
     }
 
-    public Integer getPrix() {
+    public int getPrix() {
         return prix;
     }
 
-    public void setPrix(Integer prix) {
+    public void setPrix(int prix) {
         this.prix = prix;
     }
 

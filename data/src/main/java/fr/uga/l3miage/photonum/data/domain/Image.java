@@ -2,7 +2,7 @@ package fr.uga.l3miage.photonum.data.domain;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -12,32 +12,23 @@ public class Image {
 
     private int resolution;
     private boolean estPartagee;
-    private InformationPriseDeVue informationPriseDeVue;
+    private Date dateCreation;
+    private double taille;
+    private String format;
 
     @OneToMany
-    private Set<Photo> photos;
-
-    @ManyToMany
-    private List<Client> clients;
+    private List<Photo> photos;
 
     @ManyToOne
     private Client possesseur;
     
 
-    public Set<Photo> getPhotos() {
+    public List<Photo> getPhotos() {
         return photos;
     }
 
-    public void setPhotos(Set<Photo> photos) {
+    public void setPhotos(List<Photo> photos) {
         this.photos = photos;
-    }
-
-    public InformationPriseDeVue getInformationPriseDeVue() {
-        return informationPriseDeVue;
-    }
-
-    public void setInformationPriseDeVue(InformationPriseDeVue informationPriseDeVue) {
-        this.informationPriseDeVue = informationPriseDeVue;
     }
 
     public String getChemin() {
@@ -48,11 +39,11 @@ public class Image {
         this.chemin = chemin;
     }
 
-    public Integer getResolution() {
+    public int getResolution() {
         return resolution;
     }
 
-    public void setResolution(Integer resolution) {
+    public void setResolution(int resolution) {
         this.resolution = resolution;
     }
 
@@ -64,14 +55,6 @@ public class Image {
         this.estPartagee = estPartagee;
     }
 
-    public List<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
-    }
-
     public Client getPossesseur() {
         return possesseur;
     }
@@ -79,4 +62,30 @@ public class Image {
     public void setPossesseur(Client possesseur) {
         this.possesseur = possesseur;
     }
+
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public double getTaille() {
+        return taille;
+    }
+
+    public void setTaille(double taille) {
+        this.taille = taille;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+
 }

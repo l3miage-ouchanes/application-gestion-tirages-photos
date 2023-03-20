@@ -7,11 +7,9 @@ import jakarta.persistence.*;
 public abstract class Impression {
     @Id
     @GeneratedValue
-    private int id; // remplacer car String si besoin
-    private String proprietaire;
+    private int id;
 
-    @ManyToOne
-    private Client client;
+    private String proprietaire;
 
     
     public int getId() {
@@ -28,14 +26,6 @@ public abstract class Impression {
     
     public void setProprietaire(String proprietaire) {
         this.proprietaire = proprietaire;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 
 

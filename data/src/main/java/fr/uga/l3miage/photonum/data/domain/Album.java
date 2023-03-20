@@ -2,10 +2,17 @@ package fr.uga.l3miage.photonum.data.domain;
 
 import java.util.Set;
 
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+
 public class Album extends Impression {
     private String format;
     private String qualite;
+
+    @OneToOne
     private Couverture couverture;
+
+    @OneToMany
     private Set<Page> pages;
 
     

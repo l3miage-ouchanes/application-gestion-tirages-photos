@@ -2,16 +2,16 @@ package fr.uga.l3miage.photonum.data.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class ContenuTirage {
     @Id
     private int id;
 
-    private int quantite;
-    private String format;
-    private String qualite;
-    private double prix;
+    private int quantitePhoto;
+
+    @OneToOne
     private Photo photo;
 
 
@@ -24,35 +24,11 @@ public class ContenuTirage {
     }
 
     public int getQuantite() {
-        return quantite;
+        return quantitePhoto;
     }
 
-    public void setQuantite(int quantite) {
-        this.quantite = quantite;
-    }
-
-    public String getFormat() {
-        return format;
-    }
-
-    public void setFormat(String format) {
-        this.format = format;
-    }
-
-    public String getQualite() {
-        return qualite;
-    }
-
-    public void setQualite(String qualite) {
-        this.qualite = qualite;
-    }
-
-    public double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(double prix) {
-        this.prix = prix;
+    public void setQuantite(int quantitePhoto) {
+        this.quantitePhoto = quantitePhoto;
     }
 
     public Photo getPhoto() {

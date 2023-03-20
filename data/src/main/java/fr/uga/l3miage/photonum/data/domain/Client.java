@@ -1,7 +1,6 @@
 package fr.uga.l3miage.photonum.data.domain;
 
 import java.util.List;
-import java.util.Set;
 
 import jakarta.persistence.*;
 
@@ -17,14 +16,11 @@ public class Client {
     @ManyToMany
     private List<Adresse> adresses;
 
-    @ManyToMany
-    private List<Image> imagesAccessibles;
-
     @OneToMany
     private List<Image> imagesPossedees;
 
     @OneToMany
-    private Set<Impression> impressions;
+    private List<Impression> impressions;
 
 
     public List<Adresse> getAdresses() {
@@ -67,14 +63,6 @@ public class Client {
         this.mdp = mdp;
     }
 
-    public List<Image> getImagesAccessibles() {
-        return imagesAccessibles;
-    }
-
-    public void setImagesAccessibles(List<Image> imagesAccessibles) {
-        this.imagesAccessibles = imagesAccessibles;
-    }
-
     public List<Image> getImagesPossedees() {
         return imagesPossedees;
     }
@@ -83,11 +71,11 @@ public class Client {
         this.imagesPossedees = imagesPossedees;
     }
 
-    public Set<Impression> getImpressions() {
+    public List<Impression> getImpressions() {
         return impressions;
     }
 
-    public void setImpressions(Set<Impression> impressions) {
+    public void setImpressions(List<Impression> impressions) {
         this.impressions = impressions;
     }
 }

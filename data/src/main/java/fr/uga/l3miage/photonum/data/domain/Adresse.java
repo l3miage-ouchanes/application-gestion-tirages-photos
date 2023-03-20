@@ -1,40 +1,18 @@
 package fr.uga.l3miage.photonum.data.domain;
 
-import java.util.List;
-
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Adresse")
 public class Adresse {
     @Id
     @GeneratedValue
-    @Column(name = "id")
     private Long id;
 
-    @Column(name = "numero")
     private int numero;
-
-    @Column(name = "rue")
     private String rue;
-
-    @Column(name = "codePostal")
     private int codePostal;
-
-    @Column(name = "ville")
     private String ville;
 
-    @ManyToMany
-    private List<Client> clients; 
-
-
-    public List<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
-    }
 
     public int getNumero() {
         return numero;

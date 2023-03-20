@@ -6,11 +6,14 @@ import jakarta.persistence.*;
 public class Couverture {
     @Id
     @GeneratedValue
-    private Integer id;
+    private int id;
 
     private String titre;
+
+    @OneToOne
     private Photo photo;
 
+    
     public Integer getId() {
         return id;
     }

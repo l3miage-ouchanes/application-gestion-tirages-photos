@@ -6,10 +6,14 @@ import jakarta.persistence.*;
 public class Article {
     @Id
     @GeneratedValue
-    private Integer id;
+    private int id;
 
     private double prix;
     private int quantite;
+    private String format;
+    private String qualité;
+
+    @OneToOne
     private Impression impression;
 
     @ManyToOne
@@ -54,6 +58,26 @@ public class Article {
 
     public void setReference(Reference reference) {
         this.reference = reference;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public String getQualité() {
+        return qualité;
+    }
+
+    public void setQualité(String qualité) {
+        this.qualité = qualité;
     }
 
     
