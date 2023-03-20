@@ -22,21 +22,21 @@ public class ImpressionServiceImpl implements ImpressionService {
 
     @Override
     public Impression save(Impression impression) {
-        return null;
+        return authorRepository.save(impression);
     }
 
     @Override
     public Impression get(Long id) throws EntityNotFoundException {
-        return null;
+        return authorRepository.get(id);
     }
 
     @Override
     public Collection<Impression> list() {
-        return null;
+        return authorRepository.all();
     }
 
     @Override
     public Impression update(Impression object) throws EntityNotFoundException {
-        return null;
+        return authorRepository.save(object);
     }
 }
