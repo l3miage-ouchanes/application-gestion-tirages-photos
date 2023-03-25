@@ -1,1 +1,3 @@
-app/src/main/resources/application.yaml 
+app/src/main/resources/application.yaml
+data/target
+app/target
