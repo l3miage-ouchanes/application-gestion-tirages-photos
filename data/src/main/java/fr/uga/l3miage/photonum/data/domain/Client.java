@@ -16,11 +16,11 @@ public class Client {
     @ManyToMany
     private List<Adresse> adresses;
 
-    @OneToMany
-    private List<Image> imagesPossedees;
+    //@OneToMany
+    //private List<Image> imagesPossedees;
 
-    @OneToMany
-    private List<Impression> impressions;
+    //@OneToMany
+   // private List<Impression> impressions;
 
 
     public List<Adresse> getAdresses() {
@@ -62,7 +62,7 @@ public class Client {
     public void setMdp(String mdp) {
         this.mdp = mdp;
     }
-
+/*
     public List<Image> getImagesPossedees() {
         return imagesPossedees;
     }
@@ -78,4 +78,5 @@ public class Client {
     public void setImpressions(List<Impression> impressions) {
         this.impressions = impressions;
     }
+*/
 }
