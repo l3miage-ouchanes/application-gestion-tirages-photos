@@ -19,14 +19,35 @@ public class Image {
     private double taille;
     private String format;
 
-   // @OneToMany
-    //private List<Photo> photos;
+    @OneToMany(mappedBy = "image")
+    private List<Photo> photos;
 
-    ////////////////////////////////££££££££££££££££££££££££££££££££££££££££££££££££££££££££
-    @ManyToOne  //(cascade = CascadeType.ALL)
-   //@JoinColumn(name = "client_id", referencedColumnName = "id")
+    @ManyToOne
     private Client possesseur;
-    ////////////////////////////////££££££££££££££££££££££££££££££££££££££££££££££££££££££££
+
+    public List<Photo> getPhotos() {
+        return photos;
+    }
+
+
+
+    public void setPhotos(List<Photo> photos) {
+        this.photos = photos;
+    }
+
+
+
+    public Client getPossesseur() {
+        return possesseur;
+    }
+
+
+
+    public void setPossesseur(Client possesseur) {
+        this.possesseur = possesseur;
+    }
+
+
 
     public String getChemin() {
         return chemin;
