@@ -13,10 +13,10 @@ public class Image {
     @Id
     @GeneratedValue
     private Long id;
-    
+
     private String chemin;
 
-    private int resolution;
+    private String resolution;
     private boolean estPartagee;
     private Date dateCreation;
     private double taille;
@@ -67,11 +67,11 @@ public class Image {
         this.chemin = chemin;
     }
 
-    public int getResolution() {
+    public String getResolution() {
         return resolution;
     }
 
-    public void setResolution(int resolution) {
+    public void setResolution(String resolution) {
         this.resolution = resolution;
     }
 
