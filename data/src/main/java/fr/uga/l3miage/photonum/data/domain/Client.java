@@ -18,9 +18,25 @@ public class Client {
     @OneToMany(mappedBy = "possesseur")
     private List<Image> imagesPossedees;
 
-    //@OneToMany
-   // private List<Impression> impressions;
+    @OneToMany
+    private List<Impression> impressions;
 
+
+    public List<Image> getImagesPossedees() {
+        return imagesPossedees;
+    }
+
+    public void setImagesPossedees(List<Image> imagesPossedees) {
+        this.imagesPossedees = imagesPossedees;
+    }
+
+    public List<Impression> getImpressions() {
+        return impressions;
+    }
+
+    public void setImpressions(List<Impression> impressions) {
+        this.impressions = impressions;
+    }
 
     public List<Adresse> getAdresses() {
         return adresses;

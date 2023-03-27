@@ -3,10 +3,10 @@ package fr.uga.l3miage.photonum.data.domain;
 import jakarta.persistence.*;
 
 
-//@Entity
+@Entity
 public class Impression {
-   // @Id
-   // @GeneratedValue
+   @Id
+   @GeneratedValue
     private int id;
 
     private String proprietaire;

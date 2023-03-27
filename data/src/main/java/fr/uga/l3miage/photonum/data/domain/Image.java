@@ -11,6 +11,9 @@ public class Image {
    // private Long idImage;
 
     @Id
+    @GeneratedValue
+    private Long id;
+    
     private String chemin;
 
     private int resolution;
@@ -25,6 +28,7 @@ public class Image {
     @ManyToOne
     private Client possesseur;
 
+    
     public List<Photo> getPhotos() {
         return photos;
     }
@@ -103,6 +107,18 @@ public class Image {
 
     public void setFormat(String format) {
         this.format = format;
+    }
+
+
+
+    public Long getId() {
+        return id;
+    }
+
+
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 
