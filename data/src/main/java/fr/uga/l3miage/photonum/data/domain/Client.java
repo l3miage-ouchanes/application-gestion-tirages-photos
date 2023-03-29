@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 @Entity
 public class Client {
     @Id
+    @GeneratedValue
+    private Long id;
     private String email; // c'est le mail qui identifie un client (mail unique)
 
     private List<String> prenoms;
@@ -94,4 +96,12 @@ public class Client {
         this.impressions = impressions;
     }
 */
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
