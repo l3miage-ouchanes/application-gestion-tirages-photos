@@ -9,7 +9,7 @@ import jakarta.persistence.OneToOne;
 public class ContenuTirage {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
 
     private int quantitePhoto;
 
@@ -17,11 +17,11 @@ public class ContenuTirage {
     private Photo photo;
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
