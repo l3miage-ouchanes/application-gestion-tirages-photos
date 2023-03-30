@@ -66,7 +66,7 @@ public class ImageController {
         Collection<Image> imagesPartagees;
         imagesPartagees = new ArrayList<Image>();
        
-        allImages = imageService.list();
+        allImages = imageService.all();
         for(Image image : allImages) {
             if(image.estPartagee() == true) {
                 imagesPartagees.add(image);
