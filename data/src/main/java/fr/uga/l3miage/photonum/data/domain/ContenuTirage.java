@@ -1,12 +1,14 @@
 package fr.uga.l3miage.photonum.data.domain;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
 @Entity
 public class ContenuTirage {
     @Id
+    @GeneratedValue
     private int id;
 
     private int quantitePhoto;
