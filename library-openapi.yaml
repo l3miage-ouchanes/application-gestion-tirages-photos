@@ -1,0 +1,38 @@
+openapi: 3.0.3
+info:
+  title: L3 Miage PhotoNum Library API
+  description: |
+    Gérer Clients
+    * Consultation informations
+
+    Gérer Images
+    * Consultation de la liste des images partagées
+    * Modification du statue estPartagée d'une image (on peut seulement décider de la partager pas le contraire)
+    * Supression d'une image (seulement si le fichier n'est pas partagé)
+
+    Gérer Photos :
+    * Création d'une photo à partir d'une image téléchargée (possédée par le client) ou d'une image partagée
+
+    Gérer Impressions
+    * Création d'une impression à partir du catalogue PhotoNum --> requiert de créer des photos
+    * Consultation de la collection d'umpression d'un client (avec possibilité de voir le contenu de chaque impression [facultatif])
+
+    Gérer Commandes
+    * Consultation du détail d'une commande d'un client avec son statut
+
+    //Partie 4 à ajouter//
+  version: 1.0.0
+servers:
+  - url: "http://localhost:8080"
+paths:
+  // Client
+  /api/v1/clients/{id}:
+    parameters:
+      - name: id
+      description: Id du Client
+      in: path
+      required: true
+      schema:
+        type: 
+    get:
+      summary: 

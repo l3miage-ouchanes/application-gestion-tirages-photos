@@ -1,12 +1,13 @@
 package fr.uga.l3miage.photonum.image;
 
+import org.mapstruct.Mapper;
+
+import fr.uga.l3miage.photonum.data.domain.Image;
+
 @Mapper(componentModel = "spring")
-public class ImageMapper {
-    AuthorDTO entityToDTO(Author author);
+public interface ImageMapper {
+    ImageDTO entityToDTO(Image image);
 
-    Collection<AuthorDTO> entityToDTO(Iterable<Author> authors);
+    Image dtoToEntity(ImageDTO image);
 
-    Author dtoToEntity(AuthorDTO author);
-
-    Collection<Author> dtoToEntity(Iterable<AuthorDTO> authors);
 }
