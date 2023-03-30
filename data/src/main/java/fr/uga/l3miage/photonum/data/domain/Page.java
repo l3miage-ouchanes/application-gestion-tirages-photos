@@ -12,6 +12,7 @@ public class Page {
 
     private String miseEnForme;
 
+    @OneToMany
     private Set<Photo> photos;
 
     
