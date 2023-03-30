@@ -9,7 +9,7 @@ public class Photo {
     @GeneratedValue
     private int id;
 
-    private String _texteDescription;
+    private String texteDescription;
     private String parametres;
 
     @ManyToOne
@@ -33,11 +33,11 @@ public class Photo {
     }
 
     public String get_texteDescription() {
-        return _texteDescription;
+        return texteDescription;
     }
 
     public void set_texteDescription(String _texteDescription) {
-        this._texteDescription = _texteDescription;
+        this.texteDescription = _texteDescription;
     }
 
     public String getParametres() {

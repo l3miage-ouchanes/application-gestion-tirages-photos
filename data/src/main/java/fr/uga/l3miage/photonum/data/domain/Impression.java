@@ -4,9 +4,9 @@ import jakarta.persistence.*;
 
 
 @Entity
-public abstract class Impression {
-    @Id
-    @GeneratedValue
+public class Impression {
+   @Id
+   @GeneratedValue
     private int id;
 
     private String proprietaire;
