@@ -1,8 +1,14 @@
 package fr.uga.l3miage.photonum.image;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,6 +46,7 @@ public class ImageController {
         }
     }
 
+    //suppression d'une image
     @DeleteMapping("client/{clientId}/images/{imageId}")
     public void deleteImage(@PathVariable("clientId") int clientId, @PathVariable("imageId") int imageId) throws EntityNotFoundException, DeleteImageException {
         try {
@@ -49,6 +56,25 @@ public class ImageController {
         } catch(DeleteImageException e) { // si l'image est partagée
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST); 
         }
+    }
+
+    // visualisation de la liste des images PARTAGEES
+    @GetMapping("images")
+    public List<ImageDTO> getImagesPartagees() {
+
+        Collection<Image> allImages;
+        Collection<Image> imagesPartagees;
+        imagesPartagees = new ArrayList<Image>();
+       
+        allImages = imageService.list();
+        for(Image image : allImages) {
+            if(image.estPartagee() == true) {
+                imagesPartagees.add(image);
+            }
+        }
+
+        return allImages.stream().map(imageMapper::entityToDTO).toList();
+        
     }
 
 }
