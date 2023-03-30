@@ -1,6 +1,7 @@
 package fr.uga.l3miage.photonum.image;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.mapstruct.Mapper;
 
@@ -15,5 +16,6 @@ public interface ImageMapper {
     Image dtoToEntity(ImageDTO image);
 
     Collection<Image> dtoToEntity(Iterable<ImageDTO> images);
+
 
 }
