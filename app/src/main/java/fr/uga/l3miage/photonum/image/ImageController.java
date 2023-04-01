@@ -48,7 +48,7 @@ public class ImageController {
 
     //suppression d'une image
     @DeleteMapping("client/{clientId}/images/{imageId}")
-    public void deleteImage(@PathVariable("clientId") int clientId, @PathVariable("imageId") int imageId) throws EntityNotFoundException, DeleteImageException {
+    public void deleteImage(@PathVariable("clientId") int clientId, @PathVariable("imageId") Long imageId) throws EntityNotFoundException, DeleteImageException {
         try {
             imageService.delete(imageId);
         } catch(EntityNotFoundException e) {

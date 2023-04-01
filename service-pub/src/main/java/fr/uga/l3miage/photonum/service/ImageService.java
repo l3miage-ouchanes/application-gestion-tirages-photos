@@ -15,7 +15,7 @@ public interface ImageService extends BaseService<Image, Long> {
      * @throws DeleteImageException   when an image is shared
      */
     
-    void delete(int id) throws EntityNotFoundException, DeleteImageException;
+    void delete(Long id) throws EntityNotFoundException, DeleteImageException;
 
    
 
