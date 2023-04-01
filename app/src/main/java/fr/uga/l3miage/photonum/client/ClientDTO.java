@@ -8,19 +8,19 @@ import fr.uga.l3miage.photonum.data.domain.Impression;
 import jakarta.validation.constraints.NotBlank;
 
 public record ClientDTO(
-        Long id,
+                Long id,
 
-        @NotBlank String email, // c'est le mail qui identifie un client (mail unique)
+                @NotBlank String email, // c'est le mail qui identifie un client (mail unique)
 
-        List<String> prenoms,
-        List<String> noms,
-        String mdp,
+                String prenoms,
+                String noms,
+                String mdp,
 
-        List<Adresse> adresses,
+                List<Adresse> adresses,
 
-        List<Image> imagesPossedees,
+                List<Image> imagesPossedees,
 
-        List<Impression> impressions) {
+                List<Impression> impressions) {
 }
 
 /*
