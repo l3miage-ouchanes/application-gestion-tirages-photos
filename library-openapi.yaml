@@ -3,12 +3,12 @@ info:
   title: L3 Miage PhotoNum Library API
   description: |
     Gérer Clients
-    * Consultation informations
+    * Consultation informations d'un client
 
     Gérer Images
     * Consultation de la liste des images partagées
-    * Modification du statue estPartagée d'une image (on peut seulement décider de la partager pas le contraire)
-    * Supression d'une image (seulement si le fichier n'est pas partagé)
+    * Modification du statut estPartagee d'une image (on peut seulement décider de la partager pas le contraire)
+    * Supression d'une image (seulement si le fichier n'est pas partagé ou s'il n'est lié à aucune photo dans une impression en cours)
 
     Gérer Photos :
     * Création d'une photo à partir d'une image téléchargée (possédée par le client) ou d'une image partagée
@@ -33,6 +33,85 @@ paths:
       in: path
       required: true
       schema:
-        type: 
+        type: number
+        format: int64
     get:
-      summary: 
+      summary: Obtenir les informations d'un client
+      operationId: get-infos-client
+      responses:
+        200:
+          description: OK
+          content:
+            'application/json':
+              schema:
+                $ref: "#/components/schemas/Client"
+
+        404:
+          description: The client was not found.
+    // Image
+    /api/v1/images:
+      get:
+        summary: Obtenir la liste d'images partagées
+        operationId: get-images-partagees
+        responses:
+          200:
+            description: OK
+            content:
+              'application/json':
+                schema:
+                  $ref: "#/components/schemas/Image"
+
+          404:
+            description: The image was not found.
+    /api/v1/clients/{idClient}/images/{idImage}:
+      parameters:
+        - name: idClient
+        description: Id du Client
+        in: path
+        required: true
+        schema:
+          type: number
+          format: int64
+        - name: idImage
+        description: Id de l'image
+        in: path
+        required: true
+        schema:
+          type: number
+          format: int64
+      put:
+        summary: Modifier le statut estPartagee d'une image
+        operationId: put-statut-image
+        requestBody:
+          description: Modifie le statut de l'image si trouvée
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Image"
+        responses:
+          200:
+            description: OK
+            content:
+              'application/json':
+                schema:
+                  $ref: "#/components/schemas/Image"
+          400:
+            description: Bad request (on peut juste partager l'image pas le contraire).
+          404:
+            description: The image was not found.
+      delete:
+        summary: Supprimer une image
+        operationId: delete-image
+        responses:
+          200:
+            description: OK
+            content:
+              'application/json':
+                schema:
+                  $ref: "#/components/schemas/Image"
+          400:
+            description: Bad request (on ne peut pas supprimer une image si elle est partagée ou si elle est liée à une photo d'une impression en cours).
+          404:
+            description: The image was not found.
+    // Photo
