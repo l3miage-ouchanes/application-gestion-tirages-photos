@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE", length = 3)
 public class Impression {
    @Id
    @GeneratedValue
