@@ -10,8 +10,8 @@ public class Client {
     private Long id;
     private String email; // c'est le mail qui identifie un client (mail unique)
 
-    private List<String> prenoms;
-    private List<String> noms;
+    private String prenoms;
+    private String noms;
     private String mdp;
 
     @ManyToMany
@@ -48,19 +48,19 @@ public class Client {
         this.adresses = adresses;
     }
 
-    public List<String> getPrenoms() {
+    public String getPrenoms() {
         return prenoms;
     }
 
-    public void setPrenoms(List<String> prenoms) {
+    public void setPrenoms(String prenoms) {
         this.prenoms = prenoms;
     }
 
-    public List<String> getNoms() {
+    public String getNoms() {
         return noms;
     }
 
-    public void setNoms(List<String> noms) {
+    public void setNoms(String noms) {
         this.noms = noms;
     }
 
@@ -79,23 +79,6 @@ public class Client {
     public void setMdp(String mdp) {
         this.mdp = mdp;
     }
-/*
-    public List<Image> getImagesPossedees() {
-        return imagesPossedees;
-    }
-
-    public void setImagesPossedees(List<Image> imagesPossedees) {
-        this.imagesPossedees = imagesPossedees;
-    }
-
-    public List<Impression> getImpressions() {
-        return impressions;
-    }
-
-    public void setImpressions(List<Impression> impressions) {
-        this.impressions = impressions;
-    }
-*/
 
     public Long getId() {
         return id;
