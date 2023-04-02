@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: L3 Miage PhotoNum Library API
-  description: |
+  description: >-
     Gérer Clients
     * Consultation informations d'un client
 
@@ -14,13 +14,12 @@ info:
     * Création d'une photo à partir d'une image téléchargée (possédée par le client) ou d'une image partagée
 
     Gérer Impressions
-    * Création d'une impression à partir du catalogue PhotoNum --> requiert de créer des photos
-    * Consultation de la collection d'umpression d'un client (avec possibilité de voir le contenu de chaque impression [facultatif])
+    * Création d'une impression à partir du catalogue PhotoNum
+    * Consultation de la collection d'impression d'un client (avec possibilité de voir le contenu de chaque impression [facultatif])
 
     Gérer Commandes
     * Consultation du détail d'une commande d'un client avec son statut
-
-    //Partie 4 à ajouter//
+    * Création d’une commande (choix des impressions, des formats relatifs, des quantités). A cet instant, la commande sera associée au statut "en cours".
   version: 1.0.0
 servers:
   - url: "http://localhost:8080"
@@ -45,7 +44,6 @@ paths:
             'application/json':
               schema:
                 $ref: "#/components/schemas/Client"
-
         404:
           description: The client was not found.
     // Image
@@ -115,3 +113,140 @@ paths:
           404:
             description: The image was not found.
     // Photo
+    /api/v1/clients/{idClient}/photos:
+      parameters:
+        - name: idClient
+        description: Id du Client
+        in: path
+        required: true
+        schema:
+          type: number
+          format: int64
+      post:
+        summary: Créer une photo
+        operationId: post-photo
+        requestBody:
+          description: Créer une photo
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Photo"
+        responses:
+          201:
+            description: Created
+            content:
+              'application/json':
+                schema:
+                  $ref: "#/components/schemas/Photo"
+          400:
+            description: Cas où la photo n'est pas valide
+    // Impression
+    /api/v1/clients/{id}/impressions:
+      parameters:
+        - name: id
+        description: Id du Client
+        in: path
+        required: true
+        schema:
+          type: number
+          format: int64
+      get:
+        summary: Obtenir la liste des impressions d'un client
+        operationId: get-impressions-client
+        responses:
+          200:
+            description: OK
+            content:
+              'application/json':
+                schema:
+                  $ref: "#/components/schemas/Impression"
+          404:
+            description: The impression was not found.
+      /api/v1/clients/{id}/impressions:
+        parameters:
+          - name: id
+          description: Id du Client
+          in: path
+          required: true
+          schema:
+            type: number
+            format: int64
+        post:
+          summary: Créer une impression
+          operationId: post-impression
+          requestBody:
+            description: Créer une impression
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Impression"
+          responses:
+            201:
+              description: Created
+              content:
+                'application/json':
+                  schema:
+                    $ref: "#/components/schemas/Impression"
+            400:
+              description: Cas où l'impression n'est pas valide
+    // Commande
+    /api/v1/clients/{idClient}/commandes{idCommande}:
+      parameters:
+        - name: idClient
+        description: Id du Client
+        in: path
+        required: true
+        schema:
+          type: number
+          format: int64
+        - name: idCommande
+        description: Id de la Commande
+        in: path
+        required: true
+        schema:
+          type: number
+          format: int64
+      get:
+        summary: Obtenir la commande d'un client
+        operationId: get-commande-client
+        responses:
+          200:
+            description: OK
+            content:
+              'application/json':
+                schema:
+                  $ref: "#/components/schemas/Commande"
+          400: 
+            description: Bad request (quand idClient != idClient de la commande)
+          404:
+            description: The commande was not found.
+    /api/v1/clients/{id}/commandes:
+      parameters:
+        - name: id
+        description: Id du Client
+        in: path
+        required: true
+        schema:
+          type: number
+          format: int64
+      post:
+        summary: Créer une commande
+        operationId: post-commande
+        requestBody:
+          description: Créer une commande
+          required: true
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Commande"
+        responses:
+          201:
+            description: Created
+            content:
+              'application/json':
+                schema:
+                  $ref: "#/components/schemas/Commande"
+          400:
+            description: Cas où la commande n'est pas valide

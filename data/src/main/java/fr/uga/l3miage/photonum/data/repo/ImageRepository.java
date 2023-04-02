@@ -7,7 +7,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 
-public class ImageRepository  implements CRUDRepository<Long, Image> {
+public class ImageRepository implements CRUDRepository<Long, Image> {
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -31,7 +31,7 @@ public class ImageRepository  implements CRUDRepository<Long, Image> {
 
     @Override
     public List<Image> all() {
-        String jpql = "SELECT i FROM Image i ORDER BY i.id";
+        String jpql = "SELECT * FROM Image ORDER BY Image.id";
         TypedQuery<Image> query = this.entityManager.createQuery(jpql, Image.class);
         List<Image> allImages = query.getResultList();
         return allImages;

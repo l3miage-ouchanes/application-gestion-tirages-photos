@@ -1,13 +1,17 @@
 package fr.uga.l3miage.photonum.service;
 
-import fr.uga.l3miage.photonum.data.domain.Impression;
-import fr.uga.l3miage.photonum.service.base.BaseService;
-
 import java.util.Collection;
 
-public interface ImpressionService extends BaseService<Impression, Long> {
+import fr.uga.l3miage.photonum.data.domain.Impression;
 
-    Impression save(Impression impression);
+public interface ImpressionService {
+
+    /**
+     * Returns toutes les impressions 
+     *
+     * @return toutes les impressions 
+     */ 
+    Collection<Impression> all();
 
 
 }

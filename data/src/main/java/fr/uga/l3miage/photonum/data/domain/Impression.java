@@ -11,7 +11,7 @@ public class Impression {
    @GeneratedValue
     private int id;
 
-    private String proprietaire;
+    private Client proprietaire;
 
     
     public int getId() {
@@ -22,11 +22,11 @@ public class Impression {
         this.id = id;
     }
 
-    public String getProprietaire() {
+    public Client getProprietaire() {
         return proprietaire;
     }
     
-    public void setProprietaire(String proprietaire) {
+    public void setProprietaire(Client proprietaire) {
         this.proprietaire = proprietaire;
     }
 

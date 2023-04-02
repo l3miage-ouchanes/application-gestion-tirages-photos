@@ -3,7 +3,6 @@ package fr.uga.l3miage.photonum.image;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,8 +35,8 @@ public class ImageController {
     }
 
     // modification d'une image
-    @PutMapping("client/{clientId}/images/{imageId}")
-    public ImageDTO updateImage(@PathVariable("clientId") int clientId, @PathVariable("imageId") int imageId, @Valid @RequestBody ImageDTO image) throws EntityNotFoundException {
+    @PutMapping("clients/{clientId}/images/{imageId}")
+    public ImageDTO updateImage(@PathVariable("clientId") Long clientId, @PathVariable("imageId") Long imageId, @Valid @RequestBody ImageDTO image) throws EntityNotFoundException {
         try {
             Image updated = imageService.update(imageMapper.dtoToEntity(image));
             return imageMapper.entityToDTO(updated);
@@ -47,14 +46,14 @@ public class ImageController {
     }
 
     //suppression d'une image
-    @DeleteMapping("client/{clientId}/images/{imageId}")
-    public void deleteImage(@PathVariable("clientId") int clientId, @PathVariable("imageId") Long imageId) throws EntityNotFoundException, DeleteImageException {
+    @DeleteMapping("clients/{clientId}/images/{imageId}")
+    public void deleteImage(@PathVariable("clientId") Long clientId, @PathVariable("imageId") Long imageId) throws EntityNotFoundException, DeleteImageException {
         try {
             imageService.delete(imageId);
         } catch(EntityNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         } catch(DeleteImageException e) { // si l'image est partagée
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST); 
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
     }
 
