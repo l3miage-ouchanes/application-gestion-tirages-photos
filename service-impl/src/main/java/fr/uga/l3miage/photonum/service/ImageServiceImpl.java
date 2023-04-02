@@ -33,12 +33,22 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public Image update(Image image) throws EntityNotFoundException {
-        return imageRepository.save(image);
+
+        // chercher si dans la base si pas trouvé throw une exception
+        Image i = imageRepository.get(image.getId());
+        if (i.estPartagee() == true && image.estPartagee() == false) {
+            System.out.println("impossible de départager une image partagé");
+            return i; // ancienne valeur retournée
+        } else { // sinon sauvegardé
+            return imageRepository.save(image);
+        }
     }
 
     @Override
     public void remove(Image image) {
-        if (image.estPartagee() == false) {
+        // si image n'est pas partagé et elle n'as pas de photo relié donc elle peut
+        // etre supprimé
+        if (image.estPartagee() == false && imageRepository.countPhotos(image) == 0) {
             imageRepository.delete(image);
         } else {
             System.out.println("impossible de supprimer l'image car elle est partagée!!!!!!!!!!!!");

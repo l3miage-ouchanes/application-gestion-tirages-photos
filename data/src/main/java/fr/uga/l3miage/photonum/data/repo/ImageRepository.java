@@ -37,4 +37,13 @@ public class ImageRepository implements CRUDRepository<Long, Image> {
         return allClients;
     }
 
+    // compte le nombre de Photos relié à une image passée en paramètres
+    public Long countPhotos(Image image) {
+        String jpql = "SELECT count(p.id) FROM Image i join i.Photo WHERE i.id = :idImage";
+        TypedQuery<Long> query = this.entityManager.createQuery(jpql, Long.class);
+        query.setParameter("idImage", image.getId());
+        Long nombrePhoto = query.getSingleResult();
+        return nombrePhoto;
+    }
+
 }
