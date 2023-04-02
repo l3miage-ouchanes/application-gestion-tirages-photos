@@ -31,7 +31,7 @@ public class PhotoRepository implements CRUDRepository<Long, Photo> {
 
     @Override
     public List<Photo> all() {
-        String jpql = "SELECT p FROM Photo p ORDER BY p.id";
+        String jpql = "SELECT * FROM Photo ORDER BY Photo.id";
         TypedQuery<Photo> query = this.entityManager.createQuery(jpql, Photo.class);
         List<Photo> allPhotos = query.getResultList();
         return allPhotos;

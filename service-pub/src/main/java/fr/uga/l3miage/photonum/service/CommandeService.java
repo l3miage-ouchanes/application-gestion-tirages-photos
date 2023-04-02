@@ -1,9 +1,8 @@
 package fr.uga.l3miage.photonum.service;
 
 import fr.uga.l3miage.photonum.data.domain.Commande;
-import fr.uga.l3miage.photonum.service.base.BaseService;
 
-public interface CommandeService extends BaseService<Commande, Long> {
+public interface CommandeService {
     /**
      * Returns a commande by its id
      *

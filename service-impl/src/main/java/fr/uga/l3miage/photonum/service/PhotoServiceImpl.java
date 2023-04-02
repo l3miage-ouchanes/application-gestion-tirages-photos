@@ -17,23 +17,19 @@ public class PhotoServiceImpl  implements PhotoService {
         this.photoRepository = photoRepository;
     }
 
-    @Override
     public Photo get(Long id) throws EntityNotFoundException {
     
         return photoRepository.get(id);
     }
 
-    @Override
     public Collection<Photo> all() {
         return photoRepository.all();
     }
 
-    @Override
     public Photo update(Photo object) throws EntityNotFoundException {
        return photoRepository.save(object);
     }
 
-    @Override
     public void delete(Long id) throws EntityNotFoundException {
        
        
@@ -47,14 +43,11 @@ public class PhotoServiceImpl  implements PhotoService {
          }   
     }
 
-
-    @Override
     public Collection<Photo> allPhotosOfClient(Long idClient) {
         return photoRepository.allPhotosOfClient(idClient);
         
     }
 
-    @Override
     public Photo save(Photo photo) {
         return photoRepository.save(photo);
     }

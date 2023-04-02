@@ -20,23 +20,19 @@ public class ImageServiceImpl implements ImageService {
         this.imageRepository = imageRepository;
     }
 
-    @Override
     public Image get(Long id) throws EntityNotFoundException {
     
         return imageRepository.get(id);
     }
 
-    @Override
     public Collection<Image> all() {
         return imageRepository.all();
     }
 
-    @Override
     public Image update(Image object) throws EntityNotFoundException {
        return imageRepository.save(object);
     }
 
-    @Override
     public void delete(Long id) throws EntityNotFoundException, DeleteImageException {
         //trouve l'image correspondant à l'id en paramètres
         Image imageSupp = get(id);

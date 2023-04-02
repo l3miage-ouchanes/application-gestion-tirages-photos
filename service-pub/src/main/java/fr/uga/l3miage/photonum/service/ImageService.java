@@ -3,9 +3,8 @@ package fr.uga.l3miage.photonum.service;
 import java.util.Collection;
 
 import fr.uga.l3miage.photonum.data.domain.Image;
-import fr.uga.l3miage.photonum.service.base.BaseService;
 
-public interface ImageService extends BaseService<Image, Long> {
+public interface ImageService {
 
     /**
      * Deletes an image
@@ -18,13 +17,22 @@ public interface ImageService extends BaseService<Image, Long> {
     void delete(Long id) throws EntityNotFoundException, DeleteImageException;
 
    
-
     /**
      * Returns toutes les images 
      *
      * @return toutes les images 
      */ 
     Collection<Image> all();
+
+
+    /**
+     * Updates an image
+     *
+     * @param image to be updated
+     * @return the updated image
+     * @throws EntityNotFoundException when the entity do not already exists
+     */
+    Image update(Image image) throws EntityNotFoundException;
 
     
     

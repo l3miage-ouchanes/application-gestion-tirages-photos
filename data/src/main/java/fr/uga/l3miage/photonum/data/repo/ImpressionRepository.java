@@ -3,6 +3,8 @@ package fr.uga.l3miage.photonum.data.repo;
 import fr.uga.l3miage.photonum.data.domain.Impression;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -33,7 +35,10 @@ public class ImpressionRepository implements CRUDRepository<Long, Impression> {
 
     @Override
     public List<Impression> all() {
-        return null;
+        String jpql = "SELECT * FROM Impression ORDER BY Impression.id";
+        TypedQuery<Impression> query = this.entityManager.createQuery(jpql, Impression.class);
+        List<Impression> allImpressions = query.getResultList();
+        return allImpressions;
     }
 
 }
