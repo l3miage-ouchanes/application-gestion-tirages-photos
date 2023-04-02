@@ -25,6 +25,8 @@ public interface ImageService extends BaseService<Image, Long> {
      * @return toutes les images 
      */ 
     Collection<Image> all();
+
+    
     
     
 }

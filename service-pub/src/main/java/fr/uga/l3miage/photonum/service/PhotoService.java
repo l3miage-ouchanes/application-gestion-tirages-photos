@@ -5,7 +5,7 @@ import java.util.Collection;
 import fr.uga.l3miage.photonum.data.domain.Photo;
 import fr.uga.l3miage.photonum.service.base.BaseService;
 
-public interface PhotoService extends BaseService<Photo, Long> {
+public interface PhotoService extends BaseService<Photo,Long> {
     /**
      * Saves a photo object
      *
@@ -28,7 +28,7 @@ public interface PhotoService extends BaseService<Photo, Long> {
      *
      * @return all photos
      */
-    Collection<Photo> list();
+    Collection<Photo> all();
 
     /**
      * Updates a photo
