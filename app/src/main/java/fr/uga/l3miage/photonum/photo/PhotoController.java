@@ -26,7 +26,7 @@ public class PhotoController {
         this.photoService = photoService;
     }
 
-    @PostMapping("client/{clientId}/photos")
+    @PostMapping("clients/{clientId}/photos")
     @ResponseStatus(HttpStatus.CREATED)
     public PhotoDTO newPhoto(@PathVariable("clientId") Long clientId, @Valid @RequestBody PhotoDTO photo) {
         Photo photoToSave = photoMapper.dtoToEntity(photo);

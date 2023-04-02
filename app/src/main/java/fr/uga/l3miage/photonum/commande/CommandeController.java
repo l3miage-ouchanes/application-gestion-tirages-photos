@@ -1,7 +1,6 @@
 package fr.uga.l3miage.photonum.commande;
 
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +22,7 @@ public class CommandeController {
     private CommandeService commandeService;
     private CommandeMapper commandeMapper;
 
+    @Autowired
     public CommandeController(CommandeService commandeService, CommandeMapper commandeMapper) {
         this.commandeService = commandeService;
         this.commandeMapper = commandeMapper;
