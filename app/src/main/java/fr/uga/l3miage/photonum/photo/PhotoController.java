@@ -11,7 +11,6 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.http.HttpStatus;
 
 import fr.uga.l3miage.photonum.data.domain.Photo;
-import fr.uga.l3miage.photonum.service.EntityNotFoundException;
 import fr.uga.l3miage.photonum.service.PhotoService;
 import jakarta.validation.Valid;
 

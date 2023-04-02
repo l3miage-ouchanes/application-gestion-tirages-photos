@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: L3 Miage PhotoNum Library API
-  description: |
+  description: >-
     Gérer Clients
     * Consultation informations d'un client
 
@@ -14,7 +14,7 @@ info:
     * Création d'une photo à partir d'une image téléchargée (possédée par le client) ou d'une image partagée
 
     Gérer Impressions
-    * Création d'une impression à partir du catalogue PhotoNum --> requiert de créer des photos
+    * Création d'une impression à partir du catalogue PhotoNum
     * Consultation de la collection d'impression d'un client (avec possibilité de voir le contenu de chaque impression [facultatif])
 
     Gérer Commandes
@@ -44,7 +44,6 @@ paths:
             'application/json':
               schema:
                 $ref: "#/components/schemas/Client"
-
         404:
           description: The client was not found.
     // Image
@@ -219,6 +218,8 @@ paths:
               'application/json':
                 schema:
                   $ref: "#/components/schemas/Commande"
+          400: 
+            description: Bad request (quand idClient != idClient de la commande)
           404:
             description: The commande was not found.
     /api/v1/clients/{id}/commandes:

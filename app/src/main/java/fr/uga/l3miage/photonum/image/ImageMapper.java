@@ -1,7 +1,6 @@
 package fr.uga.l3miage.photonum.image;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.mapstruct.Mapper;
 

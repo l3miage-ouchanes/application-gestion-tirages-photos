@@ -27,7 +27,7 @@ public interface BaseService<O, I> {
      *
      * @return all object as an {@link Collection}
      */
-    Collection<O> list();
+    Collection<O> all();
 
     /**
      * updates the object and return it (in case the object was updated internally)

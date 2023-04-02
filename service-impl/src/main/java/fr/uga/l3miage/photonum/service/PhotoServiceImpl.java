@@ -24,7 +24,7 @@ public class PhotoServiceImpl  implements PhotoService {
     }
 
     @Override
-    public Collection<Photo> list() {
+    public Collection<Photo> all() {
         return photoRepository.all();
     }
 

@@ -31,7 +31,7 @@ public class ImpressionServiceImpl implements ImpressionService {
     }
 
     @Override
-    public Collection<Impression> list() {
+    public Collection<Impression> all() {
         return authorRepository.all();
     }
 
